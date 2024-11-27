@@ -25,18 +25,32 @@ export default function Navbar() {
                         <li className='nav-li'><a href='#' className='nav-link hover:text-gray-300 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105'>About</a></li>
                         <li className='nav-li'><a href='#' className='nav-link hover:text-gray-300 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105'>Projects</a></li>
                         <li className='nav-li'><a href='#' className='nav-link hover:text-gray-300 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105'>Contacts</a></li>
+                        <li className='nav-li'>
+                            <a href='#' className='nav-link hover:text-gray-300 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105'>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <div 
-                    className='md:hidden cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-180'
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >
-                    <div className='space-y-2'>
-                        <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'transform rotate-45 translate-y-2.5' : ''}`}></span>
-                        <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                        <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'transform -rotate-45 -translate-y-2.5' : ''}`}></span>
+                {/* Mobile Menu Icons */}
+                <div className='md:hidden flex items-center space-x-4'>
+                    <a href='#' className='transition-all duration-300 hover:scale-110'>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </a>
+                    <div 
+                        className='cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-180'
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        <div className='space-y-2'>
+                            <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'transform rotate-45 translate-y-2.5' : ''}`}></span>
+                            <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                            <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'transform -rotate-45 -translate-y-2.5' : ''}`}></span>
+                        </div>
                     </div>
                 </div>
 
