@@ -1,8 +1,46 @@
-# React + Vite
+<div align="center">
+  <h2 align="center">React Landing Page - Demo E-commerce</h2>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  Demo E-commerce is a fully responsive demo ecommerce website, Responsive for all devices. <br/> Built using React.js and Tailwind CSS.
 
-Currently, two official plugins are available:
+  <a href="https://react-landing--page.vercel.app/"><strong>➥ Live Demo</strong></a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
+
+<br />
+
+### Demo Screeshots
+
+![Micro Desktop Demo](./readme-images/readme-1.png "Desktop Demo")
+
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+
+### Installing Ktizo Studios
+
+To install **Ktizo Studios**, run this command on your git bash:
+
+Linux and macOS:
+
+```bash
+sudo git clone https://github.com/rolandaayo/ktizo-studios.git
+```
+
+Windows:
+
+```bash
+git clone https://github.com/rolandaayo/ktizo-studios.git
+```
+
+## 💬 Contact
+
+If you have an offer, opportunity, or introduction that might make my life more interesting, email me at ibiwoyeroland@gmail.com.
+
+For the reasons stated above, I'll only respond to proposals that are matched for my schedule and interests.
+
+### License
+
+This project is **free to use** and does not contains any license.
