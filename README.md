@@ -19,20 +19,20 @@ Before you begin, ensure you have met the following requirements:
 
 * [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
 
-### Installing Ktizo Studios
+### Installing React Landing Page
 
-To install **Ktizo Studios**, run this command on your git bash:
+To install **React Landing Page**, run this command on your git bash:
 
 Linux and macOS:
 
 ```bash
-sudo git clone https://github.com/rolandaayo/ktizo-studios.git
+sudo git clone https://github.com/rolandaayo/react-landing-page.git
 ```
 
 Windows:
 
 ```bash
-git clone https://github.com/rolandaayo/ktizo-studios.git
+git clone https://github.com/rolandaayo/react-landing-page.git
 ```
 
 ## 💬 Contact
