@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/cartSlice";
 
 /**
  * Hero Component
@@ -10,8 +13,11 @@ import React from "react";
  * - Desktop: 3 columns
  */
 export default function Hero() {
+  const dispatch = useDispatch();
+
   const imagesAndText = [
     {
+      id: 1,
       image: "./images/collection-1.jpg",
       text: "Men/Women",
       subtext: "Running Sneaker Shoes",
@@ -20,6 +26,7 @@ export default function Hero() {
       reviews: 128,
     },
     {
+      id: 2,
       image: "./images/collection-2.jpg",
       text: "Men/Women",
       subtext: "Running Sneaker Shoes",
@@ -28,6 +35,7 @@ export default function Hero() {
       reviews: 256,
     },
     {
+      id: 3,
       image: "./images/collection-3.jpg",
       text: "Men/Women",
       subtext: "Running Sneaker Shoes",
@@ -36,6 +44,7 @@ export default function Hero() {
       reviews: 189,
     },
     {
+      id: 4,
       image: "./images/collection-3.jpg",
       text: "Men/Women",
       subtext: "Running Sneaker Shoes",
@@ -44,6 +53,7 @@ export default function Hero() {
       reviews: 167,
     },
     {
+      id: 5,
       image: "./images/collection-2.jpg",
       text: "Men/Women",
       subtext: "Running Sneaker Shoes",
@@ -52,6 +62,7 @@ export default function Hero() {
       reviews: 234,
     },
     {
+      id: 6,
       image: "./images/collection-1.jpg",
       text: "Men/Women",
       subtext: "Running Sneaker Shoes",
@@ -61,65 +72,116 @@ export default function Hero() {
     },
   ];
 
-  const renderStars = (rating) => {
-    return [...Array(5)].map((_, index) => (
-      <span
-        key={index}
-        className={`text-xl ${
-          index < Math.floor(rating) ? "text-yellow-400" : "text-gray-300"
-        }`}
-      >
-        ★
-      </span>
-    ));
+  const handleAddToCart = (item) => {
+    dispatch(
+      cartActions.addToCart({
+        id: item.id,
+        title: item.subtext,
+        price: item.price,
+        image: item.image,
+      })
+    );
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
   };
 
   return (
-    <div className="flex justify-center items-center px-4 py-5 animate-fade-in">
+    <motion.div
+      className="flex justify-center items-center px-4 py-5"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-7xl">
         {imagesAndText.map((item, index) => (
-          <div
-            className="flex flex-col items-center transform hover:scale-105 transition-all duration-300 ease-in-out bg-white rounded-lg p-4 shadow-md"
-            key={index}
+          <motion.div
+            key={item.id}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            className="flex flex-col items-center bg-white rounded-lg p-4 shadow-md"
           >
-            <img
+            <motion.img
               src={item.image}
               alt={`Collection item ${index + 1}`}
-              className="w-full max-w-[400px] rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="w-full max-w-[400px] rounded-lg shadow-xl"
+              whileHover={{ y: -8 }}
+              transition={{ type: "spring", stiffness: 200 }}
             />
-            <p className="text-center font-bold text-lg sm:text-xl mt-2 hover:text-blue-600 transition-colors duration-300">
+            <motion.p
+              className="text-center font-bold text-lg sm:text-xl mt-2 text-gray-800"
+              whileHover={{ color: "#2563EB" }}
+            >
               {item.text}
-            </p>
-            <p className="text-center font-bold text-xl sm:text-2xl hover:text-blue-600 transition-colors duration-300">
+            </motion.p>
+            <motion.p
+              className="text-center font-bold text-xl sm:text-2xl text-gray-900"
+              whileHover={{ color: "#2563EB" }}
+            >
               {item.subtext}
-            </p>
+            </motion.p>
             <div className="flex items-center mt-2">
-              {renderStars(item.rating)}
+              {[...Array(5)].map((_, i) => (
+                <motion.span
+                  key={i}
+                  className={`text-xl ${
+                    i < Math.floor(item.rating)
+                      ? "text-yellow-400"
+                      : "text-gray-300"
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                >
+                  ★
+                </motion.span>
+              ))}
               <span className="ml-2 text-gray-600">({item.reviews})</span>
             </div>
             <p className="text-2xl font-bold text-blue-600 mt-2">
               ${item.price}
             </p>
-            <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center">
+            <motion.button
+              onClick={() => handleAddToCart(item)}
+              className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg flex items-center"
+              whileHover={{ scale: 1.05, backgroundColor: "#1E40AF" }}
+              whileTap={{ scale: 0.95 }}
+            >
               <svg
                 className="w-5 h-5 mr-2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
+                />
               </svg>
               Add to Cart
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
